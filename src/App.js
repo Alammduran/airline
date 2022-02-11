@@ -27,6 +27,7 @@ useEffect(() => {
   return (
     <BrowserRouter>
         <Menu />
+        <button>Consultar</button>
         <AppRoutes />
     </BrowserRouter>
   );
