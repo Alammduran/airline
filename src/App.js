@@ -5,7 +5,7 @@ import { API_URL } from "./service/api";
 import { headers } from "./helpers/headers";
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes';
-import Menu from './components/menu/';
+import Menu from './components/menu';
 
 
 
@@ -27,7 +27,6 @@ useEffect(() => {
   return (
     <BrowserRouter>
         <Menu />
-        <button>Consultar</button>
         <AppRoutes />
     </BrowserRouter>
   );
