@@ -5,6 +5,7 @@ import moment from "moment";
 import "moment/locale/es";
 import { useNavigate } from "react-router-dom";
 import { getCities } from "../../redux/actions/citiesActions";
+import Select from "../../components/select";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -12,6 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const cities = useSelector((state) => state.cities.cities);
 
@@ -22,12 +24,11 @@ const Home = () => {
     },
   ]);
   const [filters, setFilters] = useState({
-    orign: "",
+    origin: "",
     destination: "",
     departure_date: "",
     passengers_numbers: "",
   });
-
   useEffect(() => {
     axios
       .get(API_URL + "api/get-schedule")
@@ -41,15 +42,12 @@ const Home = () => {
         console.log(err);
       });
 
-    const a = () => dispatch(getCities());
-    a();
+    // const dispatchGetCities = () => dispatch(getCities());
+    // dispatchGetCities();
+    dispatch(getCities());
   }, []);
 
-  useEffect(() => {
-    console.log(cities);
-  }, [cities]);
-
-  const setState = (e) => {
+  const handleInputChange = (e) => {
     setFilters({
       ...filters,
       [e.target.name]: e.target.value,
@@ -57,13 +55,13 @@ const Home = () => {
   };
 
   const handleSubmit = (e) => {
-    const { orign, destination, departure_date, passengers_numbers } = filters;
+    const { origin, destination, departure_date, passengers_numbers } = filters;
     if (destination.trim() === "") {
       e.preventDefault();
       console.log("Esta vacío");
     } else {
       navigate(
-        `/vuelos?orign=${orign}&destination=${destination}&departure_date=${departure_date}&passengers_numbers=${passengers_numbers}`,
+        `/vuelos?origin=${origin}&destination=${destination}&departure_date=${departure_date}&passengers_numbers=${passengers_numbers}`,
         {
           replace: true,
         }
@@ -82,43 +80,18 @@ const Home = () => {
           <form onSubmit={handleSubmit} className="container__form">
             <h1 className="container__title">Busca ofertas de vuelos</h1>
 
-            <div className="container__box">
-              <label>
-                Origen:
-                <select
-                  className="container__input"
-                  name="orign"
-                  onChange={setState}
-                >
-                  {cities.originCities.map((originCity, key) => {
-                    return (
-                      <option key={key} value={originCity.origin}>
-                        {originCity.origin}
-                      </option>
-                    );
-                  })}
-                </select>
-              </label>
-            </div>
-
-            <div className="container__box">
-              <label>
-                Destino:
-                <select
-                  className="container__input"
-                  name="destination"
-                  onChange={setState}
-                >
-                  {cities.originCities.map((destinationCity, key) => {
-                    return (
-                      <option key={key} value={destinationCity.origin}>
-                        {destinationCity.origin}
-                      </option>
-                    );
-                  })}
-                </select>
-              </label>
-            </div>
+            <Select
+              name="origin"
+              label="Origen:"
+              options={cities.originCities}
+              handleChange={handleInputChange}
+            />
+            <Select
+              name="destination"
+              label="Destino:"
+              options={cities.destinyCities}
+              handleChange={handleInputChange}
+            />
 
             <div className="container__box">
               <label>
@@ -126,8 +99,9 @@ const Home = () => {
                 <select
                   className="container__input"
                   name="departure_date"
-                  onChange={setState}
+                  onChange={handleInputChange}
                 >
+                  <option value="">Selecciona una opción</option>
                   {schedules.map((schedule, key) => {
                     return (
                       <option key={key} value={schedule.value}>
@@ -139,18 +113,13 @@ const Home = () => {
               </label>
             </div>
 
-            <div className="container__box">
-              <label>
-                Pasajeros:
-                <select
-                  className="container__input"
-                  name="passengers_numbers"
-                  onChange={setState}
-                >
-                  <option value="1">Uno</option>
-                </select>
-              </label>
-            </div>
+            <Select
+              name="passengers_numbers"
+              label="Pasajeros:"
+              options={numbers}
+              handleChange={handleInputChange}
+              isArrayWithoutKeys={true}
+            />
 
             <button href="#" className="">
               Buscar vuelos

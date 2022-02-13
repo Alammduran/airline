@@ -2,7 +2,10 @@ import { GET_CITIES } from "../types";
 
 // cada reducer tiene su propio state
 const initialState = {
-  cities: [],
+  cities: {
+    originCities: [{}],
+    destinyCities: [{}],
+  },
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
