@@ -1,20 +1,19 @@
-import {useEffect} from 'react';
-import './App.css';
-import axios from "axios";
-import { API_URL } from "./service/api";
-import { headers } from "./helpers/headers";
-import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from './routes';
-import Menu from './components/menu';
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes";
+import Menu from "./components/menu";
 
-
+// Redux
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
-
   return (
     <BrowserRouter>
+      <Provider store={store}>
         <Menu />
         <AppRoutes />
+      </Provider>
     </BrowserRouter>
   );
 }

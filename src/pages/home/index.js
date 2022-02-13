@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../service/api";
-import { headers } from "../../helpers/headers";
 import moment from "moment";
 import "moment/locale/es";
 import { useNavigate } from "react-router-dom";
+import { getCities } from "../../redux/actions/citiesActions";
+
+// Redux
+import { useSelector, useDispatch } from "react-redux";
 
 const Home = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const cities = useSelector((state) => state.cities.cities);
 
   const [schedules, setSchedules] = useState([
     {
@@ -34,11 +40,14 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
+
+    const a = () => dispatch(getCities());
+    a();
   }, []);
 
   useEffect(() => {
-    console.log(filters);
-  }, [filters]);
+    console.log(cities);
+  }, [cities]);
 
   const setState = (e) => {
     setFilters({
@@ -54,7 +63,7 @@ const Home = () => {
       console.log("Esta vacío");
     } else {
       navigate(
-        `/reservaciones?orign=${orign}&destination=${destination}&departure_date=${departure_date}&passengers_numbers=${passengers_numbers}`,
+        `/vuelos?orign=${orign}&destination=${destination}&departure_date=${departure_date}&passengers_numbers=${passengers_numbers}`,
         {
           replace: true,
         }
@@ -81,10 +90,13 @@ const Home = () => {
                   name="orign"
                   onChange={setState}
                 >
-                  <option value="1">Uno</option>
-                  <option value="2">Dos</option>
-                  <option value="3">Guadalajara</option>
-                  <option value="4">Cuatro</option>
+                  {cities.originCities.map((originCity, key) => {
+                    return (
+                      <option key={key} value={originCity.origin}>
+                        {originCity.origin}
+                      </option>
+                    );
+                  })}
                 </select>
               </label>
             </div>
@@ -97,10 +109,13 @@ const Home = () => {
                   name="destination"
                   onChange={setState}
                 >
-                  <option value="1">Uno</option>
-                  <option value="2">Dos</option>
-                  <option value="3">México</option>
-                  <option value="4">Cuatro</option>
+                  {cities.originCities.map((destinationCity, key) => {
+                    return (
+                      <option key={key} value={destinationCity.origin}>
+                        {destinationCity.origin}
+                      </option>
+                    );
+                  })}
                 </select>
               </label>
             </div>
