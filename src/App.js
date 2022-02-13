@@ -11,19 +11,6 @@ import Menu from './components/menu';
 
 function App() {
 
-useEffect(() => {
-  axios
-  .get(
-    API_URL + "api/get-cities",
-    { headers: headers }
-  )
-  .then((res) => {
-    console.log(1)
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-}, []);
   return (
     <BrowserRouter>
         <Menu />
