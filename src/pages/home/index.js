@@ -66,68 +66,76 @@ const Home = () => {
     <div className="container">
       <div className="container__content">
         <div className="container__img">
-          <img src="/assets/img/airport.png" alt="Airport" />
+          <img src="/assets/img/airport.svg" alt="Airport" />
         </div>
 
         <div className="container__forms">
           <form onSubmit={handleSubmit} className="container__form">
             <h1 className="container__title">Busca ofertas de vuelos</h1>
 
-            <label>
-              Origen:
-              <select
-                className="container__input"
-                name="orign"
-                onChange={setState}
-              >
-                <option value="1">Uno</option>
-                <option value="2">Dos</option>
-                <option value="3">Guadalajara</option>
-                <option value="4">Cuatro</option>
-              </select>
-            </label>
+            <div className="container__box">
+              <label>
+                Origen:
+                <select
+                  className="container__input"
+                  name="orign"
+                  onChange={setState}
+                >
+                  <option value="1">Uno</option>
+                  <option value="2">Dos</option>
+                  <option value="3">Guadalajara</option>
+                  <option value="4">Cuatro</option>
+                </select>
+              </label>
+            </div>
 
-            <label>
-              Destino:
-              <select
-                className="container__input"
-                name="destination"
-                onChange={setState}
-              >
-                <option value="1">Uno</option>
-                <option value="2">Dos</option>
-                <option value="3">México</option>
-                <option value="4">Cuatro</option>
-              </select>
-            </label>
+            <div className="container__box">
+              <label>
+                Destino:
+                <select
+                  className="container__input"
+                  name="destination"
+                  onChange={setState}
+                >
+                  <option value="1">Uno</option>
+                  <option value="2">Dos</option>
+                  <option value="3">México</option>
+                  <option value="4">Cuatro</option>
+                </select>
+              </label>
+            </div>
 
-            <label>
-              Fecha:
-              <select
-                className="container__input"
-                name="departure_date"
-                onChange={setState}
-              >
-                {schedules.map((schedule, key) => {
-                  return (
-                    <option key={key} value={schedule.value}>
-                      {schedule.text}
-                    </option>
-                  );
-                })}
-              </select>
-            </label>
+            <div className="container__box">
+              <label>
+                Fecha:
+                <select
+                  className="container__input"
+                  name="departure_date"
+                  onChange={setState}
+                >
+                  {schedules.map((schedule, key) => {
+                    return (
+                      <option key={key} value={schedule.value}>
+                        {schedule.text}
+                      </option>
+                    );
+                  })}
+                </select>
+              </label>
+            </div>
 
-            <label>
-              Pasajeros:
-              <select
-                className="container__input"
-                name="passengers_numbers"
-                onChange={setState}
-              >
-                <option value="1">Uno</option>
-              </select>
-            </label>
+            <div className="container__box">
+              <label>
+                Pasajeros:
+                <select
+                  className="container__input"
+                  name="passengers_numbers"
+                  onChange={setState}
+                >
+                  <option value="1">Uno</option>
+                </select>
+              </label>
+            </div>
 
             <button href="#" className="">
               Buscar vuelos
