@@ -1,0 +1,23 @@
+
+.card__grid {
+    width: 100%;
+    background-color: var(--white-color);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
+}
+ 
+.card__grid > article {
+  text-align: left;
+  width: 100% ;
+  transition: transform 0.3s;
+} 
+.card__grid > article img {
+  width: 100%;
+} 
+
+.card__content{
+    margin: 2rem  1rem;
+}
+
