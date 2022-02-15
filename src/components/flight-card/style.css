@@ -1,11 +1,12 @@
 
 .card__grid {
-    width: 100%;
+    width: 50%;
     background-color: var(--white-color);
     padding: 2rem 1rem;
     border-radius: 1rem;
     text-align: center;
     box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
+    margin: 0 auto;
 }
  
 .card__grid > article {
@@ -21,3 +22,15 @@
     margin: 2rem  1rem;
 }
 
+/********** Medias Queries **********/
+@media screen and (min-width: 576px){
+  .card__grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media screen and (min-width: 1024px){
+  .card__grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+}

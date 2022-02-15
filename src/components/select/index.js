@@ -6,6 +6,7 @@ const Select = ({
   label,
   options,
   isArrayWithoutKeys = false,
+  defaultValue,
 }) => {
   const getOptionsValues = !isArrayWithoutKeys
     ? options.map((values) => {
@@ -21,6 +22,7 @@ const Select = ({
           className="container__input"
           name={name}
           onChange={handleChange}
+          value={defaultValue}
         >
           <option value="">Selecciona una opción</option>
           {getOptionsValues.map((element, key) => {

@@ -121,9 +121,7 @@ const Home = () => {
               isArrayWithoutKeys={true}
             />
 
-            <button href="#" className="">
-              Buscar vuelos
-            </button>
+            <button>Buscar vuelos</button>
           </form>
         </div>
       </div>

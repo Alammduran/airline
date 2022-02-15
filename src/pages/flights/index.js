@@ -4,41 +4,37 @@ import PreBookingForm from "../../components/pre-booking-form";
 import { API_URL } from "../../service/api";
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import "./style.css";
 
 const Flights = () => {
   const { search } = useLocation();
   let origin = new URLSearchParams(search).getAll("origin");
   let destination = new URLSearchParams(search).getAll("destination");
-  let departure_date = new URLSearchParams(search).getAll("departure_date");
-  let passengers_numbers = new URLSearchParams(search).getAll(
+  let departureDate = new URLSearchParams(search).getAll("departure_date");
+  let passengersNumbers = new URLSearchParams(search).getAll(
     "passengers_numbers"
   );
 
   const [fligths, setFlights] = useState([]);
-  const [fligthId, setFlightId] = useState();
+  const [selectedFlight, setSelectedFlight] = useState([]);
 
   useEffect(() => {
     axios
       .get(
         API_URL +
-          `api/get-flights?origin=${origin}&destination=${destination}&departure_date=${departure_date}`
+          `api/get-flights?origin=${origin}&destination=${destination}&departure_date=${departureDate}`
       )
       .then((res) => {
         typeof res.data === "object" && setFlights(res.data.flights);
-        res.data ? console.log(res.data) : console.log(res.data);
-        // let schedules = res.data.schedules.map((element) => {
-        //   return { value: element, text: moment(element).format("LLLL") };
-        // });
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  const handleSelected = (id) => {
-    setFlightId(id);
+  const handleSelected = (selectedFlight) => {
+    setSelectedFlight(selectedFlight);
   };
-
   return (
     <>
       {fligths.length > 1 ? (
@@ -55,12 +51,14 @@ const Flights = () => {
         <h2>No hay vuelos con esas especificaciones</h2>
       )}
       <PreBookingForm
-        flightId={fligthId}
-        passengers_numbers={passengers_numbers}
+        selectedFlight={selectedFlight}
+        passengerNumbers={passengersNumbers}
       />
-      <Link to={"/"}>
-        <button>Buscar nuevo vuelo</button>
-      </Link>
+      <section className="container__sm">
+        <Link to={"/"}>
+          <button>Buscar nuevo vuelo</button>
+        </Link>
+      </section>
     </>
   );
 };

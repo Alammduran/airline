@@ -1,0 +1,17 @@
+.container__menu{
+    display: flex;
+    justify-content: space-around;
+}
+.container__menu__ul{
+    width: 15rem;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+.container__menu__ul__link{
+    color: #000000;
+}
+.container__menu__ul__link:hover{
+    color: var(--secondary-color);
+}
+

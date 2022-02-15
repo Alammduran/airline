@@ -134,6 +134,16 @@ button:hover{
   color: var(--primary-color);
 } 
 
+/* Flex */
+.container__flex{
+  display: flex;
+  justify-content: center;
+  flex-grow: 4;
+}
+
+
+
+
 /********** Medias Queries **********/
 @media screen and (min-width: 576px){
   .container__forms{
@@ -169,7 +179,9 @@ button:hover{
     margin-top: 0;
   }
       
-
+.empty__space{
+  padding: 1rem 0;
+}
      
 
 }
