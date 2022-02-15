@@ -3,7 +3,7 @@ import FlightCard from "../../components/flight-card";
 import PreBookingForm from "../../components/pre-booking-form";
 import { API_URL } from "../../service/api";
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./style.css";
 
 const Flights = () => {
@@ -37,28 +37,25 @@ const Flights = () => {
   };
   return (
     <>
-      {fligths.length > 1 ? (
-        fligths.map((flight) => {
-          return (
-            <FlightCard
-              key={flight.id}
-              handleSelected={handleSelected}
-              flight={flight}
-            />
-          );
-        })
-      ) : (
-        <h2>No hay vuelos con esas especificaciones</h2>
-      )}
+      <div className="container__grid">
+        {fligths.length > 0 ? (
+          fligths.map((flight) => {
+            return (
+              <FlightCard
+                key={flight.id}
+                handleSelected={handleSelected}
+                flight={flight}
+              />
+            );
+          })
+        ) : (
+          <h2>No hay vuelos con esas especificaciones</h2>
+        )}
+      </div>
       <PreBookingForm
         selectedFlight={selectedFlight}
         passengerNumbers={passengersNumbers}
       />
-      <section className="container__sm">
-        <Link to={"/"}>
-          <button>Buscar nuevo vuelo</button>
-        </Link>
-      </section>
     </>
   );
 };

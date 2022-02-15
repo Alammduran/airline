@@ -51,21 +51,6 @@ img{
   display: block;
 }
 
-button{
-  color: var(--white-color);
-  background-color: var(--input-color);
-  border-radius: 10px;
-  border: 0px;
-  box-shadow: none;
-  font-size: var(--normal-font-size);
-  font-weight: 700;
-  text-shadow: none;
-  width: 100%;
-  height: 50px;
-  cursor: pointer;
-  
-}
-
 button:hover{
   background-color: var(--secondary-color);
 }
@@ -87,10 +72,11 @@ button:hover{
 
 .container__img{
   justify-self: center;
+  width: 550px;
 }
 
 .container__img img{
-  width: 400px;
+  width: 100%;
   margin-top: 1rem;
 }
 
@@ -134,11 +120,77 @@ button:hover{
   color: var(--primary-color);
 } 
 
+
+/*  */
+
+.nomal-button{
+  color: var(--white-color);
+  background-color: var(--input-color);
+  border-radius: 10px;
+  border: 0px;
+  box-shadow: none;
+  font-size: var(--normal-font-size);
+  font-weight: 700;
+  text-shadow: none;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+}
+
+.cancel-button{
+  color: var(--white-color);
+  background-color: red;
+  border-radius: 10px;
+  border: 0px;
+  box-shadow: none;
+  font-size: var(--normal-font-size);
+  font-weight: 700;
+  text-shadow: none;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+}
+.disable-button{
+  color: var(--text-color);
+  /* background-color: red; */
+  border-radius: 10px;
+  border: 0px;
+  box-shadow: none;
+  font-size: var(--normal-font-size);
+  font-weight: 700;
+  text-shadow: none;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+}
+
+.simple-container-x{
+ margin: 0 4rem;
+}
+.text-center{
+  text-align: center;
+}
+.simple-padding-top{
+  padding-top: 1rem;
+}
+
+.simple-padding-bottom{
+  padding-bottom: 1rem;
+}
+
 /* Flex */
 .container__flex{
   display: flex;
   justify-content: center;
-  flex-grow: 4;
 }
 
 
@@ -165,23 +217,9 @@ button:hover{
     align-items: center;
     
   }
-    
-  .container__img{
-    display: flex;
-    width: 1000px;
-    height: 1000px;
-    border-radius: 1rem;
-    padding-left: 10rem;
-  }
-          
-  .container__img img{
-    width: 800px;
-    margin-top: 0;
-  }
       
 .empty__space{
   padding: 1rem 0;
 }
      
-
 }

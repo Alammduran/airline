@@ -1,0 +1,7 @@
+.reservation__form {
+    background-color: var(--white-color);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgb(35 0 77 / 20%);
+}

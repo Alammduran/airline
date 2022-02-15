@@ -29,6 +29,7 @@ const Home = () => {
     departure_date: "",
     passengers_numbers: "",
   });
+
   useEffect(() => {
     axios
       .get(API_URL + "api/get-schedule")
@@ -41,9 +42,6 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
-
-    // const dispatchGetCities = () => dispatch(getCities());
-    // dispatchGetCities();
     dispatch(getCities());
   }, []);
 
@@ -121,7 +119,9 @@ const Home = () => {
               isArrayWithoutKeys={true}
             />
 
-            <button>Buscar vuelos</button>
+            <button type="submit" className="nomal-button">
+              Buscar vuelos
+            </button>
           </form>
         </div>
       </div>
