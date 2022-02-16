@@ -83,7 +83,7 @@ const Book = () => {
           </div>
         </>
       ) : (
-        <form onSubmit={handleSubmit} className="reservation__form ">
+        <form onSubmit={handleSubmit} className="reservation__form">
           <strong>*Complete los datos para reservar el vuelo</strong>
           <Input
             label="Nombre completo"
