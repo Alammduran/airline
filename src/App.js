@@ -10,8 +10,8 @@ import store from "./redux/store";
 function App() {
   return (
     <BrowserRouter>
+      <Menu />
       <Provider store={store}>
-        <Menu />
         <AppRoutes />
       </Provider>
     </BrowserRouter>
