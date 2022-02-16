@@ -1,0 +1,12 @@
+[
+{"origin":"Guadalajara","destination":"Mazatlán","price":"2500", "departure_date":"2022-02-15 08:00:00"},
+{"origin":"Guadalajara","destination":"Mazatlán","price":"3000", "departure_date":"2022-02-15 16:30:00"},
+{"origin":"Ciudad de México","destination":"Mazatlán","price":"2000", "departure_date":"2022-02-14 10:45:00"},
+{"origin":"Ciudad de México","destination":"Cancún","price":"1800", "departure_date":"2022-02-14 14:30:00"},
+{"origin":"Monterrey","destination":"Cancún","price":"1850", "departure_date":"2022-02-15 15:00:00"},
+{"origin":"Tijuana","destination":"Cancún","price":"1730", "departure_date":"2022-02-15 20:50:00"},
+{"origin":"Cancún","destination":"Tijuana","price":"1320", "departure_date":"2022-02-14 21:00:00"},
+{"origin":"Mazatlán","destination":"Guadalajara","price":"2530", "departure_date":"2022-02-15 09:30:00"},
+{"origin":"Guadalajara","destination":"Ciudad de México","price":"950", "departure_date":"2022-02-13 21:00:00"},
+{"origin":"Ciudad de México","destination":"Guadalajara","price":"1100", "departure_date":"2022-02-13 07:30:00"}
+]
