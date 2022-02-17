@@ -15,11 +15,11 @@ const Select = ({
     : Object.values(options);
 
   return (
-    <div className="container__box">
+    <div className="input-box">
       <label>
         {label}
         <select
-          className="container__input"
+          className="simple-input"
           name={name}
           onChange={handleChange}
           value={defaultValue}

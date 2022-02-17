@@ -37,21 +37,31 @@ const Flights = () => {
   };
   return (
     <>
-      <div className="container__grid">
-        {fligths.length > 0 ? (
-          fligths.map((flight) => {
-            return (
-              <FlightCard
-                key={flight.id}
-                handleSelected={handleSelected}
-                flight={flight}
-              />
-            );
-          })
-        ) : (
+      {fligths.length > 0 ? (
+        <>
+          <div className="help-text">
+            <strong>
+              *Confirme la pre-reserva en el formulario que esta hasta abajo
+            </strong>
+          </div>
+          <div className="container-grid">
+            {fligths.map((flight) => {
+              return (
+                <FlightCard
+                  key={flight.id}
+                  handleSelected={handleSelected}
+                  flight={flight}
+                />
+              );
+            })}
+            ;
+          </div>
+        </>
+      ) : (
+        <div className="help-text">
           <h2>No hay vuelos con esas especificaciones</h2>
-        )}
-      </div>
+        </div>
+      )}
       <PreBookingForm
         selectedFlight={selectedFlight}
         passengerNumbers={passengersNumbers}

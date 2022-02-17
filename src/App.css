@@ -66,26 +66,25 @@ button:hover{
   margin-bottom: 1.5rem;
 }
 
-.container__content{
+.simple-container-grid{
   display: grid;
 }
 
-.container__img{
+.justify-center{
   justify-self: center;
 }
 
-.container__img img{
+.justify-center img{
   width: 100%;
   margin-top: 1rem;
 }
 
-.container__forms{
-  position: relative;
+.forms{
   height: 360px;
 }
 
-.container__form{
-  width: 100%;
+.form{
+  /* width: 100%; */
   background-color: var(--white-color);
   padding: 2rem 1rem;
   border-radius: 1rem;
@@ -93,13 +92,13 @@ button:hover{
   box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
 }
 
-.container__title{
+.title{
   font-size: var(--h1-font-size);
   margin-bottom: 2rem;
 }
 
 
-.container__box{
+.input-box{
   display: grid;
   grid-template-columns: max-content 1fr;
   column-gap: .5rem;
@@ -111,7 +110,7 @@ button:hover{
 
 }
 
- .container__input{
+ .simple-input{
   border: none;
   outline: none;
   font-size: var(--small-font-size);
@@ -157,7 +156,6 @@ button:hover{
 }
 .disable-button{
   color: var(--text-color);
-  /* background-color: red; */
   border-radius: 10px;
   border: 0px;
   box-shadow: none;
@@ -172,9 +170,6 @@ button:hover{
   
 }
 
-.simple-container-x{
- margin: 0 4rem;
-}
 .text-center{
   text-align: center;
 }
@@ -182,14 +177,21 @@ button:hover{
   padding-top: 1rem;
 }
 
-.simple-padding-bottom{
-  padding-bottom: 1rem;
+.empty-space{
+  padding: 1rem 0;
+}
+
+.help-text{
+  width: auto;
+  text-align: center;
+  padding: 1rem 0;
 }
 
 /* Flex */
-.container__flex{
+.container-flex{
   display: flex;
   justify-content: center;
+  flex-wrap:wrap;
 }
 
 
@@ -197,7 +199,7 @@ button:hover{
 
 /********** Medias Queries **********/
 @media screen and (min-width: 576px){
-  .container__forms{
+  .forms{
      width: 600px;
     justify-self: center;
       
@@ -210,15 +212,10 @@ button:hover{
     overflow: hidden;
     }
 
-  .container__content{
+  .simple-container-grid{
     grid-template-columns: repeat(2, max-content);
     justify-content: center;
     align-items: center;
     
-  }
-      
-.empty__space{
-  padding: 1rem 0;
-}
-     
+  }     
 }

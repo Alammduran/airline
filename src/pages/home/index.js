@@ -69,14 +69,14 @@ const Home = () => {
 
   return (
     <div className="container">
-      <div className="container__content">
-        <div className="container__img">
+      <div className="simple-container-grid">
+        <div className="justify-center">
           <img src="/assets/img/airport.svg" alt="Airport" />
         </div>
 
-        <div className="container__forms">
-          <form onSubmit={handleSubmit} className="container__form">
-            <h1 className="container__title">Busca ofertas de vuelos</h1>
+        <div className="forms">
+          <form onSubmit={handleSubmit} className="form">
+            <h1 className="title">Busca ofertas de vuelos</h1>
 
             <Select
               name="origin"
@@ -91,11 +91,11 @@ const Home = () => {
               handleChange={handleInputChange}
             />
 
-            <div className="container__box">
+            <div className="input-box">
               <label>
                 Fecha:
                 <select
-                  className="container__input"
+                  className="simple-input"
                   name="departure_date"
                   onChange={handleInputChange}
                 >

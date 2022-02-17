@@ -40,33 +40,37 @@ const Reservations = () => {
 
   return (
     <div>
-      <p className="simple-padding-bottom simple-container-x">
-        <strong>Precio Total de todas reservaciones: </strong>
-        {totalPrice.toLocaleString("es-MX", {
-          style: "currency",
-          currency: "MXN",
-          minimumFractionDigits: "2",
-        })}
-      </p>
-      <div className="container__grid">
-        {reservations.length > 0 ? (
-          reservations.map((reservation) => {
-            return (
-              <>
-                <ReservationCard
-                  key={reservation.id}
-                  cancelReservation={cancelReservation}
-                  reservation={reservation}
-                />
-              </>
-            );
-          })
-        ) : (
-          <h2 className="simple-padding-bottom simple-container-x">
-            Todavía no cuentas con algúna pre-reservación
+      {reservations.length > 0 ? (
+        <>
+          <p className="help-text">
+            <strong>Precio Total de todas tus reservaciones: </strong>
+            {totalPrice.toLocaleString("es-MX", {
+              style: "currency",
+              currency: "MXN",
+              minimumFractionDigits: "2",
+            })}
+          </p>
+          <div className="container-grid">
+            {reservations.map((reservation) => {
+              return (
+                <>
+                  <ReservationCard
+                    key={reservation.id}
+                    cancelReservation={cancelReservation}
+                    reservation={reservation}
+                  />
+                </>
+              );
+            })}
+          </div>
+        </>
+      ) : (
+        <div>
+          <h2 className="help-text">
+            Todavía no cuentas con alguna pre-reservación
           </h2>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

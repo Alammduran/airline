@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Menu = () => {
   return (
     <>
-      <div className="empty__space"></div>
+      <div className="empty-space"></div>
       <div className="container__menu">
         <Link to={"/"} className="container__menu__ul__link">
           <h1>Aerolinea</h1>
@@ -15,7 +15,7 @@ const Menu = () => {
             <li>Inicio</li>
           </Link>
           <Link to={"/reservaciones"} className="container__menu__ul__link">
-            <li>Mis reservas</li>
+            <li>Mis reservaciones</li>
           </Link>
         </ul>
       </div>

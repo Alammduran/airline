@@ -1,20 +1,19 @@
-.container__grid{
+.container-grid{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     height: auto;
-    margin-left: 1.5rem;
     gap: 1rem;
 }
 
 /********** Medias Queries **********/
 
 @media screen and (max-width: 760px){
-    .container__grid {
+    .container-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 @media screen and (max-width: 460px){
-    .container__grid {
+    .container-grid {
       grid-template-columns: repeat(1, 1fr);
   }
   }

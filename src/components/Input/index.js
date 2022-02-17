@@ -2,14 +2,10 @@ import React from "react";
 
 const Input = ({ name, handleChange, label }) => {
   return (
-    <div className="container__box">
+    <div className="input-box">
       <label>
         {label}
-        <input
-          className="container__input"
-          name={name}
-          onChange={handleChange}
-        />
+        <input className="simple-input" name={name} onChange={handleChange} />
       </label>
     </div>
   );
