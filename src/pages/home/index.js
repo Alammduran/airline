@@ -133,7 +133,7 @@ const Home = () => {
 
             {disable ? (
               <button className="disable-button" disabled>
-                Reservar
+                Buscar vuelos
               </button>
             ) : (
               <button type="submit" className="nomal-button">

@@ -109,7 +109,7 @@ const PreBookingForm = ({ selectedFlight, passengerNumbers }) => {
             />
             {disable ? (
               <button className="disable-button" disabled>
-                Reservar
+                Pre-reservar
               </button>
             ) : (
               <button className="nomal-button" type="submit">
