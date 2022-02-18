@@ -8,7 +8,7 @@ const Menu = () => {
       <div className="empty-space"></div>
       <div className="container-menu">
         <Link to={"/"} className="menu-link">
-          <h1>Aerolinea</h1>
+          <h1>Aerolínea</h1>
         </Link>
         <ul>
           <Link to={"/"} className="menu-link">
