@@ -6,15 +6,15 @@ const Menu = () => {
   return (
     <>
       <div className="empty-space"></div>
-      <div className="container__menu">
-        <Link to={"/"} className="container__menu__ul__link">
+      <div className="container-menu">
+        <Link to={"/"} className="menu-link">
           <h1>Aerolinea</h1>
         </Link>
-        <ul className="container__menu__ul">
-          <Link to={"/"} className="container__menu__ul__link">
+        <ul>
+          <Link to={"/"} className="menu-link">
             <li>Inicio</li>
           </Link>
-          <Link to={"/reservaciones"} className="container__menu__ul__link">
+          <Link to={"/reservaciones"} className="menu-link">
             <li>Mis reservaciones</li>
           </Link>
         </ul>

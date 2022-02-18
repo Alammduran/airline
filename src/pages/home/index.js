@@ -17,6 +17,7 @@ const Home = () => {
 
   const cities = useSelector((state) => state.cities.cities);
 
+  const [disable, setDisable] = useState(true);
   const [schedules, setSchedules] = useState([
     {
       value: "",
@@ -45,6 +46,16 @@ const Home = () => {
     dispatch(getCities());
   }, []);
 
+  useEffect(() => {
+    const { destination } = filters;
+
+    if (destination.trim() === "") {
+      setDisable(true);
+    } else {
+      setDisable(false);
+    }
+  }, [filters]);
+
   const handleInputChange = (e) => {
     setFilters({
       ...filters,
@@ -68,13 +79,14 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
+    <>
+      <div className="empty-space"></div>
       <div className="simple-container-grid">
         <div className="justify-center">
           <img src="/assets/img/airport.svg" alt="Airport" />
         </div>
 
-        <div className="forms">
+        <div className="forms justify-center">
           <form onSubmit={handleSubmit} className="form">
             <h1 className="title">Busca ofertas de vuelos</h1>
 
@@ -119,13 +131,19 @@ const Home = () => {
               isArrayWithoutKeys={true}
             />
 
-            <button type="submit" className="nomal-button">
-              Buscar vuelos
-            </button>
+            {disable ? (
+              <button className="disable-button" disabled>
+                Reservar
+              </button>
+            ) : (
+              <button type="submit" className="nomal-button">
+                Buscar vuelos
+              </button>
+            )}
           </form>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

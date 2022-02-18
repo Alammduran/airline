@@ -1,15 +1,14 @@
 import React from "react";
 import moment from "moment";
-import "./style.css";
 
 const FlightCard = ({ flight, handleSelected }) => {
   const { origin, destination, departure_date, price } = flight;
   return (
-    <div className="card__grid">
+    <div className="card-grid">
       <article>
         <img src="/assets/img/card.svg" alt="Card" />
 
-        <div className="card__content">
+        <div className="card-content">
           <div>
             <p>
               <strong>Origen:</strong> {origin}

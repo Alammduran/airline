@@ -14,11 +14,16 @@ const PreBookingForm = ({ selectedFlight, passengerNumbers }) => {
     price,
   } = selectedFlight;
 
+  const [disable, setDisable] = useState(true);
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const [hasPassengersNumbers, setHasPassengersNumbers] = useState(
     passengerNumbers.toString() !== "" ? passengerNumbers.toString() : 0
   );
   const [totalPrice, setTotalPrice] = useState(0);
+  const navigate = useNavigate();
+  const handleInputChange = (e) => {
+    setHasPassengersNumbers(e.target.value);
+  };
 
   useEffect(() => {
     let calculatePrice = price
@@ -26,10 +31,14 @@ const PreBookingForm = ({ selectedFlight, passengerNumbers }) => {
       : 0 * hasPassengersNumbers;
     setTotalPrice(calculatePrice);
   }, [price, hasPassengersNumbers]);
-  const navigate = useNavigate();
-  const handleInputChange = (e) => {
-    setHasPassengersNumbers(e.target.value);
-  };
+
+  useEffect(() => {
+    if (totalPrice === 0) {
+      setDisable(true);
+    } else {
+      setDisable(false);
+    }
+  }, [totalPrice]);
 
   const handleSumbit = (e) => {
     e.preventDefault();
@@ -53,11 +62,11 @@ const PreBookingForm = ({ selectedFlight, passengerNumbers }) => {
   };
 
   return (
-    <div className="card__grid">
+    <div className="card-grid">
       <article>
         <h2 className="text-center simple-padding-top">Vuelo Seleccionado</h2>
 
-        <div className="card__content">
+        <div className="card-content">
           <div>
             <p>
               <strong>Origen:</strong>
@@ -98,9 +107,15 @@ const PreBookingForm = ({ selectedFlight, passengerNumbers }) => {
               isArrayWithoutKeys={true}
               defaultValue={hasPassengersNumbers}
             />
-            <button className="nomal-button" type="submit">
-              Pre-reservar
-            </button>
+            {disable ? (
+              <button className="disable-button" disabled>
+                Reservar
+              </button>
+            ) : (
+              <button className="nomal-button" type="submit">
+                Pre-reservar
+              </button>
+            )}
           </form>
         </div>
       </article>

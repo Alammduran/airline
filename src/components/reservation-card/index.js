@@ -1,6 +1,5 @@
 import React from "react";
 import moment from "moment";
-import "./style.css";
 import { Link } from "react-router-dom";
 
 const ReservationCard = ({
@@ -17,11 +16,11 @@ const ReservationCard = ({
     passengers_numbers,
   } = reservation;
   return (
-    <div className="card__grid">
+    <div className="card-grid">
       <article>
         <img src="/assets/img/wishlist.svg" alt="Card" />
 
-        <div className="card__content">
+        <div className="card-content">
           <div>
             <p>
               <strong>Origen: </strong> {origin}

@@ -1,8 +1,8 @@
-/********** Google fonts **********/
+/* Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
 
 :root{
-/********** Colores **********/
+/* Colores */
 --primary-color: #283A5E;
 --secondary-color:#4AD9A4;
 --input-color:#0B64FB;
@@ -11,7 +11,7 @@
 --back-color: #000000;
 --white-color: #FFFFFF;
 
-/********** Font **********/
+/* Font */
 --body-font: 'Roboto', sans-serif;
 --h1-font-size: 1.5rem;
 --normal-font-size: .938rem;
@@ -25,7 +25,7 @@
 
 }
 
-/********** Global **********/
+/* Global */
 *,::before,::after{
   box-sizing: border-box;
 }
@@ -56,16 +56,7 @@ button:hover{
 }
 
 
-/********** Search Form **********/
-.container{
-  display: grid;
-  grid-template-columns: 100%;
-  height: auto;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
+/*  */
 .simple-container-grid{
   display: grid;
 }
@@ -79,12 +70,34 @@ button:hover{
   margin-top: 1rem;
 }
 
+.text-center{
+  text-align: center;
+}
+.simple-padding-top{
+  padding-top: 1rem;
+}
+
+.empty-space{
+  padding: 1rem 0;
+}
+
+.help-text{
+  width: auto;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.container-flex{
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
 .forms{
   height: 360px;
 }
 
 .form{
-  /* width: 100%; */
   background-color: var(--white-color);
   padding: 2rem 1rem;
   border-radius: 1rem;
@@ -97,7 +110,7 @@ button:hover{
   margin-bottom: 2rem;
 }
 
-
+/* Inputs */
 .input-box{
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -110,17 +123,16 @@ button:hover{
 
 }
 
- .simple-input{
+.simple-input{
   border: none;
   outline: none;
   font-size: var(--small-font-size);
   font-weight: 700;
   color: var(--primary-color);
 } 
+/* Inputs */
 
-
-/*  */
-
+/* Buttons */
 .nomal-button{
   color: var(--white-color);
   background-color: var(--input-color);
@@ -156,6 +168,7 @@ button:hover{
 }
 .disable-button{
   color: var(--text-color);
+  background-color: #8080803d;
   border-radius: 10px;
   border: 0px;
   box-shadow: none;
@@ -169,35 +182,35 @@ button:hover{
   margin-bottom: 1rem;
   
 }
+/* Buttons */
 
-.text-center{
-  text-align: center;
+/* Cards */
+
+.card-grid {
+    width: 80%;
+    background-color: var(--white-color);
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
+    margin: 0 auto;
 }
-.simple-padding-top{
-  padding-top: 1rem;
+ 
+.card-grid > article {
+  text-align: left;
+  width: 100% ;
+} 
+.card-grid > article img {
+  width: 550px;
+  margin: auto;
+} 
+
+.card-content{
+    margin: 2rem  1rem;
 }
 
-.empty-space{
-  padding: 1rem 0;
-}
+/* Cards */
 
-.help-text{
-  width: auto;
-  text-align: center;
-  padding: 1rem 0;
-}
-
-/* Flex */
-.container-flex{
-  display: flex;
-  justify-content: center;
-  flex-wrap:wrap;
-}
-
-
-
-
-/********** Medias Queries **********/
+/* Medias Queries */
 @media screen and (min-width: 576px){
   .forms{
      width: 600px;
@@ -207,11 +220,6 @@ button:hover{
 }
 
 @media screen and (min-width: 1024px){
-  .container{
-    height: 100vh;
-    overflow: hidden;
-    }
-
   .simple-container-grid{
     grid-template-columns: repeat(2, max-content);
     justify-content: center;
