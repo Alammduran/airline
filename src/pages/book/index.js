@@ -29,6 +29,7 @@ const Book = () => {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -71,7 +72,7 @@ const Book = () => {
 
   return (
     <>
-      <div class="empty-space"></div>
+      <div className="empty-space"></div>
       <div className="container-flex">
         {successfullyBooking ? (
           <>
@@ -88,7 +89,7 @@ const Book = () => {
           <form onSubmit={handleSubmit} className="reservation-form">
             <strong>*Complete los datos para reservar el vuelo</strong>
             <Input
-              label="Nombre completo"
+              label={"Nombre completo"}
               name="full_name"
               handleChange={handleChange}
             />

@@ -10,11 +10,12 @@ const initialState = {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (state = initialState, action) {
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case GET_CITIES:
       return {
         ...state,
-        cities: action.payload,
+        cities: payload,
       };
     default:
       return state;

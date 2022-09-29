@@ -39,7 +39,6 @@ const PreBookingForm = ({ selectedFlight, passengerNumbers }) => {
       setDisable(false);
     }
   }, [totalPrice]);
-
   const handleSumbit = (e) => {
     e.preventDefault();
     let token = localStorage.getItem("token");

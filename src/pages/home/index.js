@@ -6,7 +6,6 @@ import "moment/locale/es";
 import { useNavigate } from "react-router-dom";
 import { getCities } from "../../redux/actions/citiesActions";
 import Select from "../../components/select";
-
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 
@@ -44,6 +43,7 @@ const Home = () => {
         console.log(err);
       });
     dispatch(getCities());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -62,20 +62,30 @@ const Home = () => {
       [e.target.name]: e.target.value,
     });
   };
+  const [test, setTest] = useState([]);
 
+  useEffect(() => {
+    console.log(test);
+  }, [test]);
   const handleSubmit = (e) => {
-    const { origin, destination, departure_date, passengers_numbers } = filters;
-    if (destination.trim() === "") {
-      e.preventDefault();
-      console.log("Esta vacío");
-    } else {
-      navigate(
-        `/vuelos?origin=${origin}&destination=${destination}&departure_date=${departure_date}&passengers_numbers=${passengers_numbers}`,
-        {
-          replace: true,
-        }
-      );
-    }
+    e.preventDefault();
+    // const { origin, destination, departure_date, passengers_numbers } = filters;
+    // if (destination.trim() === "") {
+    //   e.preventDefault();
+    //   console.log("Esta vacío");
+    // } else {
+    //   navigate(
+    //     `/vuelos?origin=${origin}&destination=${destination}&departure_date=${departure_date}&passengers_numbers=${passengers_numbers}`,
+    //     {
+    //       replace: true,
+    //     }
+    //   );
+    // }
+    let newValue = {
+      test: "test",
+      id: "1",
+    };
+    setTest([...test, newValue]);
   };
 
   return (
@@ -103,7 +113,7 @@ const Home = () => {
               handleChange={handleInputChange}
             />
 
-            <div className="input-box">
+            <div className="input-box" key="dsa">
               <label>
                 Fecha:
                 <select
@@ -131,7 +141,7 @@ const Home = () => {
               isArrayWithoutKeys={true}
             />
 
-            {disable ? (
+            {!disable ? (
               <button className="disable-button" disabled>
                 Buscar vuelos
               </button>
